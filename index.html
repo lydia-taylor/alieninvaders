@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    
-    </head>
-    <body>
-        <h1>"This is my web page</h1>
-    
-    </body>
+<head> <!--the following connects the java scripts to the index file.--> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Alien Invaders</title>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+  <script src='js/engine.js'></script>
+  <script src='js/game.js'></script>
+  <script src='js/level.js'></script>
+
+    <!--one of the only part of the entire game which is a style apart from the sprite png.-->
+  <style> 
+      #gameboard { background-color:black; }
+      #game-wrapper { margin:0 auto; width: 500px; }
+  </style>
+</head>
+<body> <!--the canvas where everything in the game is based in-->
+  <div id='game-wrapper'>
+    <canvas id='gameboard' width='500' height='500'></canvas>
+  </div>
+</body>
 </html>
