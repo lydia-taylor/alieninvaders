@@ -1,67 +1,67 @@
-//Starts the game 
+//Connects the keyboard to the game 
 var Game = new function() {                                                                  
-  var KEY_CODES = { 37:'left', 39:'right', 32 :'fire' };
+  var KEY_CODES = { 37:'left', 39:'right', 32 :'fire' };//each corresponds with a key on the keyboard, in this instace 37 is the left arrow, 39 is the right and 32 is space, these are the same codes for each web browser. 
   this.keys = {};
 
-    //Sets in the canvas for the the game to work on
+    //this is the specifications of the canvas for the game to work on. 
   this.initialize = function(canvas_dom,level_data,sprite_data,callbacks) {
     this.canvas_elem = $(canvas_dom)[0];
-    this.canvas = this.canvas_elem.getContext('2d');
+    this.canvas = this.canvas_elem.getContext('2d');//sets the canvas width and height and if it is 2d or 3d
     this.width = $(this.canvas_elem).attr('width');
     this.height= $(this.canvas_elem).attr('height');
 
-    $(window).keydown(function(event) { //this functions the keyboard to work with the game
+    $(window).keydown(function(event) { //if statement for if the above key codes are pressed. 
       if(KEY_CODES[event.keyCode]) Game.keys[KEY_CODES[event.keyCode]] = true;
-    });
+    });//if the key is pressed it sends a function for the ship to act according to the key that has been pressed. 
 
-    $(window).keyup(function(event) {
+    $(window).keyup(function(event) {//if statment for if the key is not pressed. 
       if(KEY_CODES[event.keyCode]) Game.keys[KEY_CODES[event.keyCode]] = false;
-    });
+    });//if this is true nothing happens. 
 
     this.level_data = level_data;
     this.callbacks = callbacks;
-    Sprites.load(sprite_data,this.callbacks['start']);//this loads the sprite png
-  };
+    Sprites.load(sprite_data,this.callbacks['start']);//this loads the sprite.png
+  }
 
   this.loadBoard = function(board) { Game.board = board; };
 
-  this.loop = function() { 
+  this.loop = function() {//loading of the game board 
     Game.board.step(30/1000); 
     Game.board.render(Game.canvas);
     setTimeout(Game.loop,30);
   };
 };
 
-var Sprites = new function() { //loads the sprite image 
+var Sprites = new function() { //this gives specifications to the sprite image.  
   this.map = { }; 
 
   this.load = function(sprite_data,callback) { 
     this.map = sprite_data;
-    this.image = new Image();
+    this.image = new Image();//declares that it will be a new image. 
     this.image.onload = callback;
-    this.image.src = 'images/sprites.png';
+    this.image.src = 'images/sprites.png';//where to find the sprites file.
   };
 
-  this.draw = function(canvas,sprite,x,y,frame) {
+  this.draw = function(canvas,sprite,x,y,frame) {//draws the canvas and sprite images onto the gameboard. 
     var s = this.map[sprite];
     if(!frame) frame = 0;
     canvas.drawImage(this.image, s.sx + frame * s.w, s.sy, s.w, s.h, x,y, s.w, s.h);
   };
 }
 
-var GameScreen = function GameScreen(text,text2,callback) {
+var GameScreen = function GameScreen(text,text2,callback) {//writing appearing on the screen.
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
   };
 
-  this.render = function(canvas) {
+  this.render = function(canvas) {//rendering the game.
     canvas.clearRect(0,0,Game.width,Game.height);
-    canvas.font = "bold 40px arial";
-    var measure = canvas.measureText(text);  
-    canvas.fillStyle = "#FFFFFF";
-    canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
-    canvas.font = "bold 20px arial";
-    var measure2 = canvas.measureText(text2);
+    canvas.font = "bold 40px arial";//this is the specifications of the font for the game.
+    var measure = canvas.measureText(text); //gives a variable/name to the first text.  
+    canvas.fillStyle = "#FFFFFF";//white colour for the text 
+    canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);//places the text in the centre of the game that is why everything is divided by 2
+    canvas.font = "bold 20px arial";//sub text for the game. so the information rather than the title.
+    var measure2 = canvas.measureText(text2);//gives a variable/name to the second text. 
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
   };
 };
