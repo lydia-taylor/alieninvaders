@@ -1,22 +1,22 @@
 
-var AlienFlock = function AlienFlock() {//the group of aliens to shoot
+var AlienFlock = function AlienFlock() {//the group of aliens to shoot this. is this for the variable it is in. In this case this.dy is alienflock.dy
   this.invulnrable = true;
   this.dx = 10; this.dy = 0;
   this.hit = 1; this.lastHit = 0;
-  this.speed = 10;
+  this.speed = 10;//speed the aliens move across the screen. 
 
   this.draw = function() {};
 
-  this.die = function() {//if game finishes
+  this.die = function() {//if you kill all of the aliens it takes you to the next level. 
     if(Game.board.nextLevel()) {
-      Game.loadBoard(new GameBoard(Game.board.nextLevel())); 
+      Game.loadBoard(new GameBoard(Game.board.nextLevel())); //loads the next level.
     } else {
-      Game.callbacks['win']();
+      Game.callbacks['win']();//if there are no more levels, you have finished the game and won.
     }
   }
 
-  this.step = function(dt) { //if statement for being hit
-    if(this.hit && this.hit != this.lastHit) {
+  this.step = function(dt) { //if the alien has been hit. 
+    if(this.hit && this.hit != this.lastHit) {//if alien has been hit the dy changes. 
       this.lastHit = this.hit;
       this.dy = this.speed;
     } else {
