@@ -15,14 +15,14 @@ var AlienFlock = function AlienFlock() {//the group of aliens to shoot this. is 
     }
   }
 
-  this.step = function(dt) { //if the alien has been hit. 
-    if(this.hit && this.hit != this.lastHit) {//if alien has been hit the dy changes. 
+  this.step = function(dt) { //if the alien has been hit./aliens moving accross the screen.  
+    if(this.hit && this.hit != this.lastHit) { //if alien has reached the side of the canvas the dy changes. 
       this.lastHit = this.hit;
       this.dy = this.speed;
     } else {
-      this.dy=0;
+      this.dy=0; //if the alien has not hit the side it stays at 0. 
     }
-    this.dx = this.speed * this.hit;
+    this.dx = this.speed * this.hit; //makes the flock move faster everytime it gets hit. 
 
     var max = {}, cnt = 0;
     this.board.iterate(function() {
@@ -56,7 +56,7 @@ Alien.prototype.draw = function(canvas) {
 
 Alien.prototype.die = function() {//if one alien dies the speed of them moving across the screen increases
   GameAudio.play('die');
-  this.flock.speed += 1;
+  this.flock.speed += 1;//when ones dies the flock increases. 
   this.board.remove(this);
 }
 
