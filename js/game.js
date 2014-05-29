@@ -107,7 +107,7 @@ Player.prototype.step = function(dt) {
 
   this.reloading--;
 //the player firing
-  if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 3) {// the <3 is how many time the person may be allowed to shoot
+  if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 10) {// the <3 is how many time the person may be allowed to shoot
     GameAudio.play('fire');
     this.board.addSprite('missile',
                           this.x + this.w/2 - Sprites.map.missile.w/2,

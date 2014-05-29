@@ -53,7 +53,7 @@
 
 
   function winGame() {//the writing for if you win the game
-    var screen = new GameScreen("You Win!","(press space to restart)",//text that appears when you have won the game. 
+    var screen = new GameScreen("You Win!!","(press space to restart)",//text that appears when you have won the game. 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
