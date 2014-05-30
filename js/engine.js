@@ -58,7 +58,7 @@ var GameScreen = function GameScreen(text,text2,callback) {//writing appearing o
     canvas.clearRect(0,0,Game.width,Game.height);
     canvas.font = "bold 40px arial";//this is the specifications for the first heading.
     var measure = canvas.measureText(text); //gives a variable/name to the first text.  
-    canvas.fillStyle = "#FFFFFF";//white colour for the text 
+    canvas.fillStyle = "#800080";//white colour for the text 
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);//places the text in the centre of the game that is why everything is divided by 2
     canvas.font = "bold 20px arial";//sub text for the game. so the information rather than the title.
     var measure2 = canvas.measureText(text2);//gives a variable/name to the second text. 
