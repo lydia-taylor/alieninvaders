@@ -25,7 +25,7 @@
 
   var spriteData = {//the sy/sx stands for where to find the aliens in the source file. i.e the png file. and the frames are how many there is of the alien 1 or 2 in the png file. 
       // the writing in black is the class for the sprite, the text in " '' " is the name for each sprite. 
-    'alien1': { sx: 0,  sy: 0,  w: 23, h: 18, cls: Alien, frames: 2 },
+    'alien1': { sx: 0,  sy: 0,  w: 30, h: 18, cls: Alien, frames: 2 },
     'alien2': { sx: 0,  sy: 18, w: 23, h: 18, cls: Alien, frames: 2 },
       'alien3': { sx: 0,  sy: 100, w: 23, h: 18, cls: Alien, frames: 2 },
       
