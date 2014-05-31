@@ -35,7 +35,7 @@
   }
 
   function startGame() {//starting the game. 
-    var screen = new GameScreen("Alien Invaders","press space to start",//the title and sub text on the start of the game. 
+    var screen = new GameScreen("Cake Invaders","press space to start",//the title and sub text on the start of the game. 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
