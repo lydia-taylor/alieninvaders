@@ -8,9 +8,9 @@
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
-          [0,0,0,0,0,3,3,0,0,0,0],
-          [0,0,0,0,0,2,2,0,0,0,0],
-          [0,0,0,0,0,1,1,0,0,0,0]],
+          [0,0,0,0,0,1,1,0,0,0,0],
+          [0,0,0,0,0,1,1,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0]],
      2:  [[0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
@@ -19,8 +19,8 @@
           [0,0,2,2,2,2,2,2,2,2,0],
           [0,0,2,2,2,2,2,2,2,2,0],
           [0,0,1,1,1,1,1,1,1,1,0],
-          [0,0,1,1,1,1,1,1,1,1,0],
-          [0,0,1,1,1,1,1,1,1,1,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0]],
      3:  [[0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
@@ -32,7 +32,7 @@
           [0,0,2,2,2,2,2,2,2,2,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,1,1,1,1,1,1,1,1,0],
-          [0,0,1,1,1,1,1,1,1,1,0]] };
+          [0,0,0,0,0,0,0,0,0,0,0]] };
 
   var spriteData = {//the sy/sx stands for where to find the aliens in the source file. i.e the png file. and the frames are how many there is of the alien 1 or 2 in the png file. 
       // the writing in black is the class for the sprite, the text in " '' " is the name for each sprite. 
@@ -46,7 +46,7 @@
   }
 
   function startGame() {//starting the game. 
-    var screen = new GameScreen("Cake Invaders","press space to start",//the title and sub text on the start of the game. 
+    var screen = new GameScreen("Cake Invaders","Try to box up all the cakes, press space to start",//the title and sub text on the start of the game. 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
